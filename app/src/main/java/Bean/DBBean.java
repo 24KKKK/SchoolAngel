@@ -19,7 +19,7 @@ public class DBBean {
             Class.forName(driverName);
             conn = DriverManager.getConnection(dbURL, userName, userPwd);
             stmt = conn.createStatement();
-            System.out.println("成功同数据库建立连接！");
+            System.out.println("成功同数据库建立连接！ ");
         } catch (Exception ex) {
             System.out.println(" 无法同数据库建立连接！"+ex.getMessage());
         }
