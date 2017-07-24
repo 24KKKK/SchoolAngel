@@ -1,0 +1,11 @@
+-- 创建订单表
+create table table_order
+(
+	ordernum VARCHAR(20),  -- 订单编号，主键
+	apartment int ,        -- 楼号
+	dorm int,              -- 宿舍号
+	name VARCHAR(10),      -- 送达地姓名
+	datetime VARCHAR(30),  -- 下单时间
+	foodnum int,           -- 菜品编号
+	money int              -- 订单金额
+)
