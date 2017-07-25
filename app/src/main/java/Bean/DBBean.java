@@ -8,7 +8,7 @@ import java.sql.*;
 
 public class DBBean {
     private   String driverName = "com.mysql.jdbc.Driver";
-    private   String dbURL = "jdbc:mysql://123.207.153.83:3306/db_schoolangel?useUnicode=true&characterEncoding=utf8";
+    private   String dbURL = "jdbc:mysql://192.168.2.101:3306/db_schoolangel?useUnicode=true&characterEncoding=utf8";
     private   String userName = "root";
     private   String userPwd = "root";
     public   Connection conn = null;
