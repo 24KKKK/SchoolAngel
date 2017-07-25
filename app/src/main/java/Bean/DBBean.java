@@ -7,35 +7,25 @@ import java.sql.*;
  */
 
 public class DBBean {
-    private  static String driverName = "com.mysql.jdbc.Driver";
-    private  static String dbURL = "jdbc:mysql://192.168.2.101:3306/db_schoolangel";
-    private  static String userName = "root";
-    private  static String userPwd = "root";
-    private static Connection conn = null;
-    private static Statement stmt = null;
+    private   String driverName = "com.mysql.jdbc.Driver";
+    private   String dbURL = "jdbc:mysql://123.207.153.83:3306/db_schoolangel?useUnicode=true&characterEncoding=utf8";
+    private   String userName = "root";
+    private   String userPwd = "root";
+    public   Connection conn = null;
+    private  Statement stmt = null;
 
-/*    public DBBean() {
-        try {
-            Class.forName(driverName);
-            conn = DriverManager.getConnection(dbURL, userName, userPwd);
-            stmt = conn.createStatement();
-            System.out.println("成功同数据库建立连接！ ");
-        } catch (Exception ex) {
-            System.out.println(" 无法同数据库建立连接！"+ex.getMessage());
-        }
-    }*/
-    static {
+    public DBBean() {
         try {
             Class.forName(driverName);
             conn = DriverManager.getConnection(dbURL, userName, userPwd);
             stmt = conn.createStatement();
             System.out.println("成功同数据库建立连接！");
         } catch (Exception ex) {
-            System.out.println("无法同数据库建立连接！"+ex.getMessage());
+            System.out.println(" 无法同数据库建立连接！"+ex.getMessage());
         }
     }
 
-    public static int executeUpdate(String s) {
+    public int executeUpdate(String s) {
         int result = 0;
         try {
             result = stmt.executeUpdate(s);
@@ -46,7 +36,7 @@ public class DBBean {
         return result;
     }
 
-    public static ResultSet executeQuery(String s) {
+    public ResultSet executeQuery(String s) {
         ResultSet rs = null;
         try {
             rs = stmt.executeQuery(s);
@@ -57,7 +47,7 @@ public class DBBean {
         return rs;
     }
 
-    public static void close() {
+    public void close() {
         try {
             stmt.close();
             conn.close();

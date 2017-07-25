@@ -1,12 +1,12 @@
 package com.diy.schoolangel;
 
-import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-public class MainActivity extends Activity
+public class MainActivity extends AppCompatActivity
 {
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -31,17 +31,20 @@ public class MainActivity extends Activity
         apartNum = apartnum.getText().toString() ;
         dormiNum = dorminum.getText().toString() ;
         strname = name.getText().toString();
-        Log.d("菜品编号：",foodNum);
+        /*Log.d("菜品编号：",foodNum);
         Log.d("楼编号：",apartNum);
         Log.d("宿舍编号：",dormiNum);
-        Log.d("姓名：",strname);
-
-
-        /*Bundle data=new Bundle();
-        data.putString("name",str);
-        Intent intent=new Intent(MainActivity.this,ShowActivity.class);
-        intent.putExtra("name",str);
-        startActivity(intent);*/
-
+        Log.d("姓名：",strname);*/
+        Bundle data=new Bundle();
+        data.putString("foodNum",foodNum);
+        data.putString("apartNum",apartNum);
+        data.putString("dormiNum",dormiNum);
+        data.putString("strname",strname);
+        Intent intent=new Intent(MainActivity.this,InsertActivity.class);
+        intent.putExtra("foodNum",foodNum);
+        intent.putExtra("apartNum",apartNum);
+        intent.putExtra("dormiNum",dormiNum);
+        intent.putExtra("strname",strname);
+        startActivity(intent);
     }
 }
