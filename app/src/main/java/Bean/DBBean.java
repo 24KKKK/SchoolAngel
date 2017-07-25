@@ -14,7 +14,7 @@ public class DBBean {
     private static Connection conn = null;
     private static Statement stmt = null;
 
-    public DBBean() {
+/*    public DBBean() {
         try {
             Class.forName(driverName);
             conn = DriverManager.getConnection(dbURL, userName, userPwd);
@@ -23,22 +23,19 @@ public class DBBean {
         } catch (Exception ex) {
             System.out.println(" 无法同数据库建立连接！"+ex.getMessage());
         }
-    }
-    /*static {
+    }*/
+    static {
         try {
-            System.out.println("4");
             Class.forName(driverName);
-            System.out.println("1");
             conn = DriverManager.getConnection(dbURL, userName, userPwd);
-            System.out.println("2");
             stmt = conn.createStatement();
             System.out.println("成功同数据库建立连接！");
         } catch (Exception ex) {
             System.out.println("无法同数据库建立连接！"+ex.getMessage());
         }
-    }*/
+    }
 
-    public int executeUpdate(String s) {
+    public static int executeUpdate(String s) {
         int result = 0;
         try {
             result = stmt.executeUpdate(s);
@@ -49,7 +46,7 @@ public class DBBean {
         return result;
     }
 
-    public ResultSet executeQuery(String s) {
+    public static ResultSet executeQuery(String s) {
         ResultSet rs = null;
         try {
             rs = stmt.executeQuery(s);
@@ -60,7 +57,7 @@ public class DBBean {
         return rs;
     }
 
-    public void close() {
+    public static void close() {
         try {
             stmt.close();
             conn.close();
